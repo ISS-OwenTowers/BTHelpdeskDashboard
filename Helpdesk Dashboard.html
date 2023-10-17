@@ -1,0 +1,48 @@
+  
+<html>
+<head>
+  <script type="text/javascript" charset="utf-8">
+    var sites = [
+      ["https://insight.issworld.com/#/site/ISS_UK/views/AccountManagementDashboard/Home?:iid=1", 60000],
+      ["https://insight.issworld.com/#/site/ISS_UK/views/AccountManagementDashboard/PeopleDevelopment?:iid=1", 30000],
+      ["https://insight.issworld.com/#/site/ISS_UK/views/AccountManagementDashboard/WorkforceManagement?:iid=1", 30000],
+      ["https://insight.issworld.com/#/site/ISS_UK/views/AccountManagementDashboard/HoursManagement?:iid=1", 30000],
+      ["https://insight.issworld.com/#/site/ISS_UK/views/AccountManagementDashboard/HealthSafetyp1?:iid=1", 30000],
+      ["https://insight.issworld.com/#/site/ISS_UK/views/AccountManagementDashboard/ServiceDelivery?:iid=1", 30000],
+      ["https://insight.issworld.com/#/site/ISS_UK/views/AccountManagementDashboard/QualityCompliancep1?:iid=1", 30000]
+    ];
+  </script>  
+  <style type="text/css" media="screen">
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    iframe {
+      height: 100%;
+      width: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="iframe"></iframe>
+  <script type="text/javascript">
+    var iframe = document.getElementById("iframe");
+    var currentIndex = 0;
+
+    showSite();
+
+    function showSite() {
+      iframe.setAttribute("src", sites[currentIndex][0]);
+
+      setTimeout(function() {
+        currentIndex++;
+        if (currentIndex === sites.length) {
+          currentIndex = 0;
+        }
+        showSite();
+      }, sites[currentIndex][1]);
+    }
+  </script>
+</body>
+</html>
